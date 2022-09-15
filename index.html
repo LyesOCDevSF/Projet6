@@ -22,9 +22,19 @@
 			<h1 class="title" style="text-align: center">Poch'Lib</h1>
 			<h2 class="h2" style="text-align: center">Nouveau Livre</h2>
 			<button input type="AddBook" onclik="aadBooks();" class="h2" style="text-align: center">Ajouter un livre</button>
+			<form action="/page-recherche-livre" method="post">
+			<div>
+				<label for="titre">Titre du livre</label>
+				<input type="text" id="titre" name="Titre" placeholder="Titre du livre..." required>
+			</div>
+			<div>
+				<label for="auteur">Nom de l'auteur</label>
+				<input type="text" id="auteur" name="Auteur" placeholder="Nom de l'auteur" required>
+			</div>
+
+			</form>
 			
-			
-			<input type="button" onClick="buttonSearchGet()">
+			<!-- <input type="button" onClick="buttonSearchGet()"> -->
 			<hr>
 			<div id="content">
 				<h2 class="h2" style="text-align:center">Ma poch'liste</h2>
