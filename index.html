@@ -21,18 +21,8 @@
 		<div id="myBooks">
 			<h1 class="title" style="text-align: center">Poch'Lib</h1>
 			<h2 class="h2" style="text-align: center">Nouveau Livre</h2>
-			<button input type="AddBook" onclik="aadBooks();" class="h2" style="text-align: center">Ajouter un livre</button>
-			<form action="/page-recherche-livre" method="post">
-			<div>
-				<label for="titre">Titre du livre</label>
-				<input type="text" id="titre" name="Titre" placeholder="Titre du livre..." required>
-			</div>
-			<div>
-				<label for="auteur">Nom de l'auteur</label>
-				<input type="text" id="auteur" name="Auteur" placeholder="Nom de l'auteur" required>
-			</div>
-
-			</form>
+			<button id="boutonAdd" input type="AddBook" onclik="aadBooks();" class="h2" style="text-align: center">Ajouter un livre</button>
+			<div id="mon_form"></div>
 			
 			<!-- <input type="button" onClick="buttonSearchGet()"> -->
 			<hr>
