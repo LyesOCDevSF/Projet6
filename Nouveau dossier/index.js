@@ -1,15 +1,39 @@
 
 
-document.getElementById("button").onclick = buttonSearchGet;
-
-Source: https://prograide.com/pregunta/17839/utiliser-un-bouton-html-pour-appeler-une-fonction-javascript
-
-// ici on prépare la recherche par déclenchement du bouton recherche//
+/*const buttonElement = document.createElement("button");
+const sectionBouton = doucment.querySelector(".btn");
+sectionBouton.appendChild(buttonElement);*/
 
 
+var boutonElement = document.getElementById("Bouton");
+boutonElement.addEventListener("click", addBooks);
 
-function buttonSearchGet(){
-    //on met l'url dans une variable//
-    var apiGoogle = "https://www.googleapis.com/books/v1/{collectionName}/resourceID?parameters";
-    goto (apiGoogle);
+// ajouter un formulaire en js avec une fonction ?
+// le formulaire s'affiche au niveau du click
+//creer le bouton innerhtml
+
+
+
+
+let divformulaire = document.getElementById("divFormulaire")
+divformulaire.style.display = 'none';
+
+function addBooks(){
+    //divformulaire = document.getElementById("divFormulaire")
+    divformulaire.style.display= 'block';
+}
+
+function searchBook(){
+fetch("https://www.googleapis.com/books/v1/volumes?q=search+terms")
+    .then(function(res) {
+        if (res.ok){
+            return res.json();
+        }
+    })
+    .then(function(value){
+        console.log(value);
+    })
+    .catch(function(err){
+        console.log(err);
+    })
 }
