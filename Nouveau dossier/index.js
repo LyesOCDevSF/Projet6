@@ -5,8 +5,8 @@ const sectionBouton = doucment.querySelector(".btn");
 sectionBouton.appendChild(buttonElement);*/
 
 
-var boutonElement = document.getElementById("Bouton");
-boutonElement.addEventListener("click", addBooks);
+/*let boutonElement = document.getElementById("Bouton");
+boutonElement.addEventListener("click", addBooks);*/
 
 // ajouter un formulaire en js avec une fonction ?
 // le formulaire s'affiche au niveau du click
@@ -15,13 +15,19 @@ boutonElement.addEventListener("click", addBooks);
 
 
 
-let divformulaire = document.getElementById("divFormulaire")
-divformulaire.style.display = 'none';
+//let divformulaire = document.getElementById("divFormulaire")
+//divformulaire.style.display = 'none';
 
-function addBooks(){
+/*function addBooks(){
     //divformulaire = document.getElementById("divFormulaire")
     divformulaire.style.display= 'block';
+    console.log(divformulaire);*/
+document.getElementById(".champ_cache").style.display = "none";
+function addBooks(){
+document.getElementById(".champ_cache").style.display = "block";
 }
+
+
 
 function searchBook(){
 fetch("https://www.googleapis.com/books/v1/volumes?q=search+terms")
