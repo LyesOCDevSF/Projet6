@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<LINK rel="stylesheet" type="text/css" href="../style.css">
+		<LINK rel="stylesheet" type="text/css" href="../index.css">
 		<title>Poch'Lib</title>
 		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="index.js" type="text/javascript">
-			/*let divFormulaire = document.getElementById("divFormulaire");
-			function addBooks(){
-				divFormulaire.style.display='block';
-			}*/
-			addBooks();
+
+    test();
+
+// est ce que toute les fonctions doivent etre listés dans le script ?
+// deboggeur console.log() pour js 
+
+
+
+			
 		</script>
   	</head>
   	<body>
@@ -21,10 +25,12 @@
 
 		<div id="myBooks">
 			<h1 class="title"  style="text-align: center">Poch'Lib</h1>
-			<h2 class="h2" style="text-align: center">Nouveau Livre</h2>
-			<button input type="AddBook" id="Bouton" onclik= "function addBooks();"   class=".btn" style="text-align: center">Ajouter un livre</button>
-			
-			<p class = ".champ_cache" id="champ_cache">Titre<input type="text"  onclick="addBooks();" value=""></p>
+			<h2 id = "main" class="h2" style="text-align: center">Nouveau Livre</h2>
+			<button input type="AddBook" id="BoutonAjout" onclik= "function addBooks();"   class=".btn" style="text-align: center">Ajouter un livre</button>
+			Titre du livre<input type="text" value="">
+			Auteur du Livre<input type="text" value="">
+			<button input type="Cancel" id="BoutonCancel" style="text-align: center">Annuler</button>
+			<!--p class = ".champ_cache" id="champ_cache">Titre<input type="text"  onclick="addBooks();" value=""></p-->
 			
 			
 			<hr>
