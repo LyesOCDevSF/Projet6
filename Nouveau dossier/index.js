@@ -3,32 +3,59 @@
 
  let divHide = document.getElementById("div1");
  divHide.style.display="none";
+
+const btnAdd = document.getElementById("btn1");
+const btnCancel = document.getElementById("btn2");
+const btnSearch = document.getElementById("btn3");
+
 function addBooks(){
-document.getElementById("div1").style.display = "block";
+
+    //divHide = document.getElementById("div1");
+    
+    if (document.getElementById("div1").style.display == 'none')
+    {
+         document.getElementById("div1").style.display = 'block';
+    }
+    
 }
 
+btnAdd.addEventListener("click", addBooks);
 
 
-function test(){
-    const newelt = document.createElement('div'); // creation d'une div
-    let element = document.getElementById('main'); // rataché a une balise parent
-    element.appendChild(element); // enfant rattaché au parent 
+function cancelSearch(){
+
+    let getTitle = document.getElementById("champTitre");
+    let getAuthor = document.getElementById("champAuteur");
+    if(getTitle.value != ""){
+        getTitle.value = "";
+    }
+    if(getAuthor.value != ""){
+        getAuthor.value = "";
+    }
+    if(document.getElementById("div1").style.display == 'block')
+    {
+        document.getElementById("div1").style.display = 'none';
+    }
 }
-//}
-
-// ------------------------------------------------ essai fetch pour api ------------------------------------------------
+btnCancel.addEventListener("click", cancelSearch);
 
 function searchBook(){
-fetch("https://www.googleapis.com/books/v1/volumes?q=search+terms")
-    .then(function(res) {
-        if (res.ok){
-            return res.json();
-        }
-    })
-    .then(function(value){
-        console.log(value);
-    })
-    .catch(function(err){
-        console.log(err);
-    })
+
+    let title = document.getElementById("champTitre");
+    let author = document.getElementById("champAuteur");
+
+    if(title.value == ""){
+        alert("Veuillez renseigner un titre.");
+        title.focus();
+        return false;
+    }
+    if(author.value == ""){
+        alert("Veuillez renseigner un nom d'auteur");
+        author.focus();
+        return false;
+    }
+    return true;
 }
+btnSearch.addEventListener("click", searchBook);
+
+
