@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<LINK rel="stylesheet" type="text/css" href="../index.css">
+		<LINK rel="stylesheet" type="text/css" href="../style.scss">
 		<title>Poch'Lib</title>
 		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="index.js" type="text/javascript">
-
-    test();
-
-// est ce que toute les fonctions doivent etre listés dans le script ?
-// deboggeur console.log() pour js 
-
-
-
-			
-		</script>
+		<script src="index.js" type="text/javascript" defer></script>
+		
   	</head>
   	<body>
 		 njuy36+1<div id="img" style="text-align: center ">
@@ -26,10 +17,18 @@
 		<div id="myBooks">
 			<h1 class="title"  style="text-align: center">Poch'Lib</h1>
 			<h2 id = "main" class="h2" style="text-align: center">Nouveau Livre</h2>
-			<button input type="AddBook" id="BoutonAjout" onclik= "function addBooks();"   class=".btn" style="text-align: center">Ajouter un livre</button>
-			Titre du livre<input type="text" value="">
-			Auteur du Livre<input type="text" value="">
-			<button input type="Cancel" id="BoutonCancel" style="text-align: center">Annuler</button>
+
+			<button input type="button" id="btn1" onclik= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
+			<div id="div1"></br>
+			Titre du livre <input id="champTitre" type="text" value=""></br>
+			</br>
+			Auteur du Livre <input id="champAuteur" type="text" value=""></br>
+		</br>
+			<button inputType="Search" id="btn3" style="text-align:center">Rechercher</button>
+			<button input type="reset" id="btn2" style="text-align: center">Annuler</button>
+		</div></br>
+			
+
 			<!--p class = ".champ_cache" id="champ_cache">Titre<input type="text"  onclick="addBooks();" value=""></p-->
 			
 			
@@ -38,5 +37,7 @@
 				<h2 class="h2" style="text-align:center">Ma poch'liste</h2>
 			</div>
 		</div>
+		<!--script src="index.js" type="text/javascript"></script-->
   	</body>
+	  
 </html>
