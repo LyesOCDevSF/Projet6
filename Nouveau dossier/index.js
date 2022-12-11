@@ -55,6 +55,10 @@ function searchBook(){
         return false;
     }
     return true;
+
+   // fetch('https://www.googleapis.com/books/v1/volumes?q=search+terms')
+        //.then(res => res.json());
+       // .then(data => data.json())
 }
 btnSearch.addEventListener("click", searchBook);
 
