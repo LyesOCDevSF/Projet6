@@ -9,8 +9,6 @@ const btnCancel = document.getElementById("btn2");
 const btnSearch = document.getElementById("btn3");
 
 function addBooks(){
-
-    //divHide = document.getElementById("div1");
     
     if (document.getElementById("div1").style.display == 'none')
     {
@@ -23,7 +21,7 @@ btnAdd.addEventListener("click", addBooks);
 
 
 function cancelSearch(){
-
+    
     let getTitle = document.getElementById("champTitre");
     let getAuthor = document.getElementById("champAuteur");
     if(getTitle.value != ""){
@@ -41,25 +39,70 @@ btnCancel.addEventListener("click", cancelSearch);
 
 function searchBook(){
 
-    let title = document.getElementById("champTitre");
-    let author = document.getElementById("champAuteur");
-
-    if(title.value == ""){
+    
+    let bookUrl = "https://www.googleapis.com/books=/v1/volumes?q="
+    let searchTitle = document.getElementById("champTitre");
+    let searchAuthor = document.getElementById("champAuteur");
+    let id, title, author, description, bookImg, bookMark
+    let searchData1;
+    let searchData2;
+    
+    if(searchTitle.value == ""){
         alert("Veuillez renseigner un titre.");
-        title.focus();
+        searchTitle.focus();
         return false;
     }
-    if(author.value == ""){
+    if(searchAuthor.value == ""){
         alert("Veuillez renseigner un nom d'auteur");
-        author.focus();
+        searchAuthor.focus();
         return false;
     }
-    return true;
+    /*searchTitle.addEventListener('input', function(){
+        if(this.value== 3)
+         url = 'https://www.googleapis.com/books=/v1/volumes?q=';})*/
+        searchData1 = searchTitle.value;
+        searchData2 = searchAuthor.value;
+        //searchData2 = searchAuthor.value();
+        if(searchData1 == "" || searchData1 == null ){
+            displayError();
+        }
+        if(searchData2 == "" || searchData2 == null)
+            displayError();
+            else{
+                fetch(bookUrl + searchData1, {mode:'no-cors'})
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    console.log(data);
+                })
+                
+            }
+        /*else{
+            document.ajax({
+                url : bookUrl + searchData1,
+                dataType : "json",
+                success: function(res){
+                    console.log(res)
+                }
+            })*/
 
-   // fetch('https://www.googleapis.com/books/v1/volumes?q=search+terms')
-        //.then(res => res.json());
-       // .then(data => data.json())
-}
+        }
+
+
+
+   /*fetch("https://www.googleapis.com/books/v1/volumes?q=")
+        .then(function(resonse){
+            return resonse.json();
+        })
+        .then(function(data){
+            console.log(data);
+        }
+    
+      
+}*/
+
 btnSearch.addEventListener("click", searchBook);
 
-
+//var outputList = document.getElementById("displayBook");
+//var bookURL = "https://www.googleapis.com/books/v1/volumes?q=search+terms";
