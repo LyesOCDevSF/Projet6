@@ -46,7 +46,7 @@ function searchBook(){
     let id, title, author, description, bookImg, bookMark
     let searchData1;
     let searchData2;
-    let keyAPI = "key=AIzaSyAq8xs1_8LCggwaDVqpMg2QqoMEinvf0Qk";
+   // let keyAPI = "key=AIzaSyAq8xs1_8LCggwaDVqpMg2QqoMEinvf0Qk";
     
     if(searchTitle.value == ""){
         alert("Veuillez renseigner un titre.");
@@ -58,13 +58,9 @@ function searchBook(){
         searchAuthor.focus();
         return false;
     }
-    /*searchTitle.addEventListener('input', function(){
-        if(this.value== 3)
-         url = 'https://www.googleapis.com/books=/v1/volumes?q=';})*/
         searchData1 = searchTitle.value;
         searchData2 = searchAuthor.value;
-        bookUrl = "https://www.googleapis.com/books/v1/volumes?q=" + searchData1;
-        //searchData2 = searchAuthor.value();
+        bookUrl = "https://www.googleapis.com/books/v1/volumes?q=" + searchData1 + searchData2;
         if(searchData1 == "" || searchData1 == null ){
             displayError();
         }
@@ -77,6 +73,15 @@ function searchBook(){
                 })
                 .then(function(data){
                     console.log(data);
+
+                    for(i=0; i<10; i++){
+                    let bookImg ='book'+(i+1)
+
+                    let imgRow = document.createElement('div');
+                    imgRow.className = "row imgRow";
+                    document.getElementById(imgRow).appendChild("displayBook");
+
+                    }
                 })
             }
 }
