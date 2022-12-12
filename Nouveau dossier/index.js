@@ -40,12 +40,13 @@ btnCancel.addEventListener("click", cancelSearch);
 function searchBook(){
 
     
-    let bookUrl = "https://www.googleapis.com/books=/v1/volumes?q="
+    let bookUrl = "https://www.googleapis.com/books/v1/volumes?q="
     let searchTitle = document.getElementById("champTitre");
     let searchAuthor = document.getElementById("champAuteur");
     let id, title, author, description, bookImg, bookMark
     let searchData1;
     let searchData2;
+    let keyAPI = "key=AIzaSyAq8xs1_8LCggwaDVqpMg2QqoMEinvf0Qk";
     
     if(searchTitle.value == ""){
         alert("Veuillez renseigner un titre.");
@@ -62,6 +63,7 @@ function searchBook(){
          url = 'https://www.googleapis.com/books=/v1/volumes?q=';})*/
         searchData1 = searchTitle.value;
         searchData2 = searchAuthor.value;
+        bookUrl = "https://www.googleapis.com/books/v1/volumes?q=" + searchData1;
         //searchData2 = searchAuthor.value();
         if(searchData1 == "" || searchData1 == null ){
             displayError();
@@ -69,40 +71,13 @@ function searchBook(){
         if(searchData2 == "" || searchData2 == null)
             displayError();
             else{
-                fetch(bookUrl + searchData1, {mode:'no-cors'})
-                .then(function(response){
-                    return response.json();
+                fetch(bookUrl, /*{mode:'no-cors', credentials:'include'}*/)
+                .then(function(resonse){
+                    return resonse.json();
                 })
                 .then(function(data){
                     console.log(data);
                 })
-                
             }
-        /*else{
-            document.ajax({
-                url : bookUrl + searchData1,
-                dataType : "json",
-                success: function(res){
-                    console.log(res)
-                }
-            })*/
-
-        }
-
-
-
-   /*fetch("https://www.googleapis.com/books/v1/volumes?q=")
-        .then(function(resonse){
-            return resonse.json();
-        })
-        .then(function(data){
-            console.log(data);
-        }
-    
-      
-}*/
-
+}
 btnSearch.addEventListener("click", searchBook);
-
-//var outputList = document.getElementById("displayBook");
-//var bookURL = "https://www.googleapis.com/books/v1/volumes?q=search+terms";
