@@ -3,6 +3,9 @@
 
  let divHide = document.getElementById("div1");
  divHide.style.display="none";
+ let searchResult = document.getElementById("Result");
+ searchResult.style.display="none";
+
  let id, title, author, description, bookImg, bookMark
 const btnAdd = document.getElementById("btn1");
 const btnCancel = document.getElementById("btn2");
@@ -14,7 +17,6 @@ function addBooks(){
     {
          document.getElementById("div1").style.display = 'block';
     }
-    
 }
 
 btnAdd.addEventListener("click", addBooks);
@@ -92,9 +94,12 @@ function displayResults(data){
 
         
         formatOutput(bookImg, title, author,description);
+        if(searchResult.style.display == 'none')
+    {
+        searchResult.style.display = 'block';
+    }
                                 
-                                
-                                //console.log(disp)
+        
     }
 
 function formatOutput(bookImg, title, author, description, bookIsbn){
