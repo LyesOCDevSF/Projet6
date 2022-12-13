@@ -3,7 +3,7 @@
 
  let divHide = document.getElementById("div1");
  divHide.style.display="none";
-
+ let id, title, author, description, bookImg, bookMark
 const btnAdd = document.getElementById("btn1");
 const btnCancel = document.getElementById("btn2");
 const btnSearch = document.getElementById("btn3");
@@ -60,7 +60,7 @@ function searchBook(){
     }
         searchData1 = searchTitle.value;
         searchData2 = searchAuthor.value;
-        bookUrl = "https://www.googleapis.com/books/v1/volumes?q=" + searchData1 + searchData2;
+        bookUrl = "https://www.googleapis.com/books/v1/volumes?q=" + searchData1 +" " + searchData2;
         if(searchData1 == "" || searchData1 == null ){
             displayError();
         }
@@ -68,21 +68,59 @@ function searchBook(){
             displayError();
             else{
                 fetch(bookUrl, /*{mode:'no-cors', credentials:'include'}*/)
-                .then(function(resonse){
-                    return resonse.json();
+                .then(function(response){
+                    return response.json();
                 })
                 .then(function(data){
-                    console.log(data);
-
-                    for(i=0; i<10; i++){
-                    let bookImg ='book'+(i+1)
-
-                    let imgRow = document.createElement('div');
-                    imgRow.className = "row imgRow";
-                    document.getElementById(imgRow).appendChild("displayBook");
-
-                    }
+                    displayResults(data);
                 })
+               
             }
+            
 }
-btnSearch.addEventListener("click", searchBook);
+btnSearch.addEventListener("click", searchBook, displayResults);
+
+
+function displayResults(data){
+    console.log(data.items.count);
+    for(var i=0; i< 2; i+=10){
+        item = data.items[i];
+        title = item.volumeInfo.title;
+        author = item.volumeInfo.author;
+        description = item.volumeInfo.description;
+        bookImg = item.volumeInfo.imageLinks;
+
+        
+        formatOutput(bookImg, title, author,description);
+                                
+                                
+                                //console.log(disp)
+    }
+
+function formatOutput(bookImg, title, author, description, bookIsbn){
+    let display = document.getElementById("displayBook");
+    let viewUrl = 'book.html?isbn='+bookIsbn;
+    //let htmlCard= document.createElement("div");
+    display.innerHTML =
+    `<div class="col-lg-6">
+    <div class="card" style="">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="${bookImg}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">${title}</h5>
+            <p class="card-text">Author: ${author}</p>
+            <p class="card-text">Description: ${description}</p>
+            <a target="_blank" href="${viewUrl}" class="btn btn-secondary">Read Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`
+    
+  
+  
+}
+}
