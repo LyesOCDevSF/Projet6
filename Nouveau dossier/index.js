@@ -36,6 +36,7 @@ function cancelSearch(){
     {
         document.getElementById("div1").style.display = 'none';
     }
+    window.history.back();
 }
 btnCancel.addEventListener("click", cancelSearch);
 
@@ -66,8 +67,9 @@ function searchBook(){
         if(searchData1 == "" || searchData1 == null ){
             displayError();
         }
-        if(searchData2 == "" || searchData2 == null)
+        if(searchData2 == "" || searchData2 == null){
             displayError();
+        }
             else{
                 fetch(bookUrl, /*{mode:'no-cors', credentials:'include'}*/)
                 .then(function(response){
@@ -84,28 +86,31 @@ btnSearch.addEventListener("click", searchBook, displayResults);
 
 
 function displayResults(data){
-    console.log(data.items.count);
-    for(var i=0; i< 2; i+=10){
+    console.log(data.items);
+    for(var i=0; i< 1; i+=10){
         item = data.items[i];
         title = item.volumeInfo.title;
-        author = item.volumeInfo.author;
+        authors = item.volumeInfo.authors;
         description = item.volumeInfo.description;
         bookImg = item.volumeInfo.imageLinks;
+        if(bookImg= null)
+        {
+            bookImg= "logo/unavailable.png";
+        }
 
         
-        formatOutput(bookImg, title, author,description);
+        formatOutput(bookImg, title, authors,description);
         if(searchResult.style.display == 'none')
     {
         searchResult.style.display = 'block';
-    }
-                                
-        
+    }     
     }
 
-function formatOutput(bookImg, title, author, description, bookIsbn){
+function formatOutput(bookImg, title, authors, description, bookIsbn){
     let display = document.getElementById("displayBook");
     let viewUrl = 'book.html?isbn='+bookIsbn;
     //let htmlCard= document.createElement("div");
+    for(i=0; i<2; i+=10){
     display.innerHTML =
     `<div class="col-lg-6">
     <div class="card" style="">
@@ -116,7 +121,7 @@ function formatOutput(bookImg, title, author, description, bookIsbn){
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">${title}</h5>
-            <p class="card-text">Author: ${author}</p>
+            <p class="card-text">Author: ${authors}</p>
             <p class="card-text">Description: ${description}</p>
             <a target="_blank" href="${viewUrl}" class="btn btn-secondary">Read Book</a>
           </div>
@@ -124,8 +129,6 @@ function formatOutput(bookImg, title, author, description, bookIsbn){
       </div>
     </div>
   </div>`
-    
-  
-  
+    }
 }
 }
