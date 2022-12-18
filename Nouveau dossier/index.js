@@ -3,7 +3,7 @@
 let main = document.getElementById("main");
  
  
-
+let imgsrc = "D:/P6/Nouveau dossier/logo/unavailable.png"
  let id, title, author, description, bookImg, bookMark
 
 
@@ -11,6 +11,7 @@ let main = document.getElementById("main");
 
 
 main.innerHTML= `<button input type="button" id="btn1" onclik= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>`
+
 main.innerHTML += `<div id="div1"></br>
 Titre du livre <input id="champTitre" type="text" value=""></br>
 </br>
@@ -24,6 +25,10 @@ main.innerHTML += `<div class="bookList">
 <div id="displayBook">
 </div>
 </div>`
+main.innerHTML += `<div id="list-output" class="">
+<div class="row">
+</div>
+</div>`
 let add = document.getElementById("btn1");
 let divHide = document.getElementById("div1");
 divHide.style.display="none";
@@ -31,6 +36,7 @@ let searchResult = document.getElementById("Result");
 searchResult.style.display = "none";
 let display = document.getElementById("displayBook");
 display.style.display= "none";
+
 
 
 
@@ -66,6 +72,8 @@ function searchBook(){
     let id, title, author, description, bookImg, bookMark
     let searchData1;
     let searchData2;
+    
+    
    
     
     if(searchTitle.value == ""){
@@ -94,6 +102,7 @@ function searchBook(){
                 })
                 .then(function(data){
                     displayResults(data);
+                    displayResults(outputList);
                 })
                
             }
@@ -102,35 +111,45 @@ function searchBook(){
 }
 btnSearch.addEventListener("click", searchBook, displayResults);
 
-
+let outputList = document.getElementById("list-output");
+    outputList.style.display="none";
 function displayResults(data){
     console.log(data.items);
-    for(var i=1; i< 2; i+=10){
+    for(var i=0; i< 2; i+=10){
         item = data.items[i];
         title = item.volumeInfo.title;
         authors = item.volumeInfo.authors;
         description = item.volumeInfo.description;
-        bookImg = item.volumeInfo.imageLinks.smallThumbnail;
-        if(bookImg == null || bookImg == "" )
-        {
-            document.createElement("img");
-            img.src = "logo/unavailable.png";
-        }
-        else{
-
+        bookImg = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.smallThumbnail : imgsrc
         
-        formatOutput(bookImg, title, authors,description);
+        item2 = data.items[i+1];
+        title2 = item.volumeInfo.title;
+        authors2 =  item.volumeInfo.authors;
+        description2 = item.volumeInfo.description;
+        bookImg2 = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.smallThumbnail : imgsrc
+        
+        outputList.innerHTML += '<div class="row mt-4">' +
+        formatOutput(bookImg, title, authors,description) +
+        formatOutput(bookImg2, title2, authors2, description2, bookImg2) +
+        `</div>`;
         if(searchResult.style.display == 'none')
     {
         searchResult.style.display = 'block';
     }   
-}  
+    if(outputList.style.display == 'none'){
+        outputList.style.display = 'block';
+    }
+ 
     }
 
 function formatOutput(bookImg, title, authors, description, bookIsbn){
     let viewUrl = 'book.html?isbn='+bookIsbn;
     //let htmlCard= document.createElement("div");
-    for(i=0; i<2; i++){
+    for(i=0; i<1; i++){
+        if(display.style.display = "none"){
+            display.style.display= "block";
+        }
+        
     display.innerHTML =
     `<div class="col-lg-6">
     <div class="card" style="">
@@ -149,6 +168,8 @@ function formatOutput(bookImg, title, authors, description, bookIsbn){
       </div>
     </div>
   </div>`
-    }
+    
+    return display;
+}
 }
 }
