@@ -24,9 +24,10 @@ main.innerHTML += `<div class="bookList">
 <h2 id= "Result" class="text-center">Résultat de recherche</h2>
 <div id="displayBook">
 </div>
-</div>`
+`
 main.innerHTML += `<div id="list-output" class="">
 <div class="row">
+</div>
 </div>
 </div>`
 let add = document.getElementById("btn1");
@@ -102,35 +103,44 @@ function searchBook(){
                 })
                 .then(function(data){
                     displayResults(data);
-                    displayResults(outputList);
+                    //displayResults(outputList);
                 })
                
             }
             
             
 }
-btnSearch.addEventListener("click", searchBook, displayResults);
+btnSearch.addEventListener("click", searchBook);
 
 let outputList = document.getElementById("list-output");
+
     outputList.style.display="none";
 function displayResults(data){
+    //outputList.appendChild(display);
     console.log(data.items);
-    for(var i=0; i< 2; i+=10){
-        item = data.items[i];
+    
+        item = data.items[0];
         title = item.volumeInfo.title;
         authors = item.volumeInfo.authors;
         description = item.volumeInfo.description;
         bookImg = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.smallThumbnail : imgsrc
         
-        item2 = data.items[i+1];
-        title2 = item.volumeInfo.title;
-        authors2 =  item.volumeInfo.authors;
-        description2 = item.volumeInfo.description;
-        bookImg2 = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.smallThumbnail : imgsrc
+        item2 = data.items[1];
+        title2 = item2.volumeInfo.title;
+        authors2 =  item2.volumeInfo.authors;
+        description2 = item2.volumeInfo.description;
+        bookImg2 = (item2.volumeInfo.imageLinks) ? item2.volumeInfo.imageLinks.smallThumbnail : imgsrc
+
+        item3 = data.items[2];
+        title3 = item3.volumeInfo.title;
+        authors3 = item3.volumeInfo.authors
+        description3 =  item3.volumeInfo.description;
+        bookImg3  = (item3.volumeInfo.imageLinks) ? item3.volumeInfo.imageLinks.smallThumbnail : imgsrc
         
         outputList.innerHTML += '<div class="row mt-4">' +
         formatOutput(bookImg, title, authors,description) +
-        formatOutput(bookImg2, title2, authors2, description2, bookImg2) +
+        formatOutput(bookImg2, title2, authors2, description2) +
+        formatOutput(bookImg3, title3, authors3, description3) +
         `</div>`;
         if(searchResult.style.display == 'none')
     {
@@ -140,18 +150,18 @@ function displayResults(data){
         outputList.style.display = 'block';
     }
  
-    }
+    
 
 function formatOutput(bookImg, title, authors, description, bookIsbn){
     let viewUrl = 'book.html?isbn='+bookIsbn;
     //let htmlCard= document.createElement("div");
-    for(i=0; i<1; i++){
+    
         if(display.style.display = "none"){
             display.style.display= "block";
         }
         
-    display.innerHTML =
-    `<div class="col-lg-6">
+    //display.innerHTML =
+    var a =`<div class="col-lg-6">
     <div class="card" style="">
       <div class="row no-gutters">
         <div class="col-md-4">
@@ -169,7 +179,7 @@ function formatOutput(bookImg, title, authors, description, bookIsbn){
     </div>
   </div>`
     
-    return display;
+   return a;
 }
 }
-}
+
