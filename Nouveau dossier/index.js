@@ -10,9 +10,25 @@ let imgsrc = "D:/P6/Nouveau dossier/logo/unavailable.png"
 
 
 
-main.innerHTML= `<button input type="button" id="btn1" onclik= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>`
-
-main.innerHTML += `<div id="div1"></br>
+main.innerHTML= `<button input type="button" id="btn1" onclik= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
+<div id="div1"></br>
+Titre du livre <input id="champTitre" type="text" value=""></br>
+</br>
+Auteur du Livre <input id="champAuteur" type="text" value=""></br>
+</br>
+<button inputType="Search" id="btn3" style="text-align:center">Rechercher</button>
+<button input type="reset" id="btn2" style="text-align: center">Annuler</button>
+</div></br>
+<div class="bookList">
+<h2 id= "Result" class="text-center">Résultat de recherche</h2>
+<div id="displayBook">
+</div>
+<div id="list-output" class="">
+<div class="row">
+</div>
+</div>
+</div>`
+/*main.innerHTML += `<div id="div1"></br>
 Titre du livre <input id="champTitre" type="text" value=""></br>
 </br>
 Auteur du Livre <input id="champAuteur" type="text" value=""></br>
@@ -29,7 +45,7 @@ main.innerHTML += `<div id="list-output" class="">
 <div class="row">
 </div>
 </div>
-</div>`
+</div>`*/
 let add = document.getElementById("btn1");
 let divHide = document.getElementById("div1");
 divHide.style.display="none";
@@ -122,25 +138,27 @@ function displayResults(data){
         item = data.items[0];
         title = item.volumeInfo.title;
         authors = item.volumeInfo.authors;
-        description = item.volumeInfo.description;
+        description = (item.volumeInfo.description).substring(0, 200);
         bookImg = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.smallThumbnail : imgsrc
         
         item2 = data.items[1];
         title2 = item2.volumeInfo.title;
         authors2 =  item2.volumeInfo.authors;
-        description2 = item2.volumeInfo.description;
+        description2 = item2.volumeInfo.description.substring(0, 200);
         bookImg2 = (item2.volumeInfo.imageLinks) ? item2.volumeInfo.imageLinks.smallThumbnail : imgsrc
 
         item3 = data.items[2];
         title3 = item3.volumeInfo.title;
         authors3 = item3.volumeInfo.authors
-        description3 =  item3.volumeInfo.description;
+        description3 =  item3.volumeInfo.description.substring(0, 200);
         bookImg3  = (item3.volumeInfo.imageLinks) ? item3.volumeInfo.imageLinks.smallThumbnail : imgsrc
         
         outputList.innerHTML += '<div class="row mt-4">' +
+        `<table><tbody><tr>`+
         formatOutput(bookImg, title, authors,description) +
         formatOutput(bookImg2, title2, authors2, description2) +
         formatOutput(bookImg3, title3, authors3, description3) +
+        `</tr></tbody></table>`+
         `</div>`;
         if(searchResult.style.display == 'none')
     {
@@ -161,23 +179,18 @@ function formatOutput(bookImg, title, authors, description, bookIsbn){
         }
         
     //display.innerHTML =
-    var a =`<div class="col-lg-6">
+    var a =
+       `<td>
     <div class="card" style="">
-      <div class="row no-gutters">
-        <div class="col-md-4">
           <img src="${bookImg}" class="card-img" alt="...">
         </div>
-        <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">${title}</h5>
             <p class="card-text">Author: ${authors}</p>
-            <p class="card-text">Description: ${description}</p>
+            <p class="card-text" maxLenght="200">Description: ${description}</p>
             <a target="_blank" href="${viewUrl}" class="btn btn-secondary">Read Book</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>`
+  </div>
+  </td>`
     
    return a;
 }
