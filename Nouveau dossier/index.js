@@ -2,8 +2,9 @@
 
 let main = document.getElementById("main");
  
- 
+ // Préparation insertion du formulaire dans le html
 let imgsrc = "D:/P6/Nouveau dossier/logo/unavailable.png"
+let bookmark = "D:/P6/Nouveau dossier/logo/signet (2).png"
  let id, title, author, description, bookImg, bookMark
 
 
@@ -58,7 +59,7 @@ display.style.display= "none";
 
 
 
-
+// bouton ajouter un livre : Affichage des champs de recherche
 function addBooks(){
     
     if(divHide.style.display == 'none'){
@@ -70,7 +71,7 @@ function addBooks(){
 add.addEventListener("click", addBooks);
 
 
-
+// bouton annuler la recherche : rafraichissement de la page 
 let btnCancel = document.getElementById("btn2");
 function cancelSearch(){
     
@@ -78,7 +79,7 @@ function cancelSearch(){
 }
 btnCancel.addEventListener("click", cancelSearch);
 
-
+// bouton recherche : recherche le livre demandé 
 const btnSearch = document.getElementById("btn3");
 function searchBook(){
 
@@ -86,7 +87,6 @@ function searchBook(){
     let bookUrl = "https://www.googleapis.com/books/v1/volumes?q="
     let searchTitle = document.getElementById("champTitre");
     let searchAuthor = document.getElementById("champAuteur");
-    let id, title, author, description, bookImg, bookMark
     let searchData1;
     let searchData2;
     
@@ -128,6 +128,8 @@ function searchBook(){
 }
 btnSearch.addEventListener("click", searchBook);
 
+
+// affichage des resultats de la recherche 
 let outputList = document.getElementById("list-output");
 
     outputList.style.display="none";
@@ -140,24 +142,27 @@ function displayResults(data){
         authors = item.volumeInfo.authors;
         description = (item.volumeInfo.description).substring(0, 200);
         bookImg = (item.volumeInfo.imageLinks) ? item.volumeInfo.imageLinks.smallThumbnail : imgsrc
+        id = item.id;
         
         item2 = data.items[1];
         title2 = item2.volumeInfo.title;
         authors2 =  item2.volumeInfo.authors;
         description2 = item2.volumeInfo.description.substring(0, 200);
         bookImg2 = (item2.volumeInfo.imageLinks) ? item2.volumeInfo.imageLinks.smallThumbnail : imgsrc
+        id2 = item2.id;
 
         item3 = data.items[2];
         title3 = item3.volumeInfo.title;
         authors3 = item3.volumeInfo.authors
         description3 =  item3.volumeInfo.description.substring(0, 200);
         bookImg3  = (item3.volumeInfo.imageLinks) ? item3.volumeInfo.imageLinks.smallThumbnail : imgsrc
+        id3 = item3.id;
         
         outputList.innerHTML += '<div class="row mt-4">' +
         `<table><tbody><tr>`+
-        formatOutput(bookImg, title, authors,description) +
-        formatOutput(bookImg2, title2, authors2, description2) +
-        formatOutput(bookImg3, title3, authors3, description3) +
+        formatOutput(bookImg, title, authors,description, id) +
+        formatOutput(bookImg2, title2, authors2, description2, id2) +
+        formatOutput(bookImg3, title3, authors3, description3, id3) +
         `</tr></tbody></table>`+
         `</div>`;
         if(searchResult.style.display == 'none')
@@ -169,8 +174,9 @@ function displayResults(data){
     }
  
     
+// format resultat de recherche 
 
-function formatOutput(bookImg, title, authors, description, bookIsbn){
+function formatOutput(bookImg, title, authors, description, id, bookIsbn){
     let viewUrl = 'book.html?isbn='+bookIsbn;
     //let htmlCard= document.createElement("div");
     
@@ -181,18 +187,28 @@ function formatOutput(bookImg, title, authors, description, bookIsbn){
     //display.innerHTML =
     var a =
        `<td>
+       
     <div class="card" style="">
           <img src="${bookImg}" class="card-img" alt="...">
+          <button inputType="button" id="saveB" style="text-align: right"><img src="${bookmark}" classe= "bookmark"></button>
         </div>
           <div class="card-body">
             <h5 class="card-title">${title}</h5>
             <p class="card-text">Author: ${authors}</p>
             <p class="card-text" maxLenght="200">Description: ${description}</p>
+            <p class="card-text">Id: ${id}</p>
             <a target="_blank" href="${viewUrl}" class="btn btn-secondary">Read Book</a>
   </div>
   </td>`
     
    return a;
 }
+
+let saveBook = document.getElementById("saveB");
+
+function myList(){
+    
+}
+
 }
 
