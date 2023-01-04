@@ -9,13 +9,13 @@ let bookmark = "D:/P6/Nouveau dossier/logo/signet (2).png"
 
 
 
-main.innerHTML= `<button input type="button" id="btn1" onclik= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
+main.innerHTML= `<button input type="button" id="btnAdd" onclik= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
 <div id="div1"></br>
 Titre du livre <input id="champTitre" type="text" value=""></br>
 </br>
 Auteur du Livre <input id="champAuteur" type="text" value=""></br>
 </br>
-<button inputType="Search" id="btn3" style="text-align:center">Rechercher</button>
+<button inputType="Search" id="btnSearch" style="text-align:center">Rechercher</button>
 <button input type="reset" id="btn2" style="text-align: center">Annuler</button>
 </div></br>
 <div class="bookList">
@@ -30,7 +30,7 @@ Auteur du Livre <input id="champAuteur" type="text" value=""></br>
 </div>*/
 
 
-let add = document.getElementById("btn1");
+let add = document.getElementById("btnAdd");
 let divHide = document.getElementById("div1");
 divHide.style.display="none";
 let searchResult = document.getElementById("Result");
@@ -63,7 +63,7 @@ function cancelSearch(){
 btnCancel.addEventListener("click", cancelSearch);
 
 // bouton recherche : recherche le livre demandé 
-const btnSearch = document.getElementById("btn3");
+const btnSearch = document.getElementById("btnSearch");
 function searchBook(){
 
     
@@ -151,11 +151,9 @@ function formatOutput(bookImg, title, authors, description, id){
         if(display.style.display = "none"){
             display.style.display= "block";
         }
-        
-    
     var a =
   `<header>
-          <input type="button" id="saveB" onclick="function myList()" style="text-align: right"><img src="${bookmark}" classe= "bookmark"></input>
+          <button input type="button" id="saveB" onclick="myList('${id}')"  style="text-align: right"><img src="${bookmark}" classe= "bookmark"></button>
   <div class="title"><h3>${title}</h3></div>
   </header>
   <div class="authors"><h4>${authors}</h4></div>
@@ -169,7 +167,7 @@ function formatOutput(bookImg, title, authors, description, id){
 
 
 
-let saveBook = document.getElementById("saveB");
+//let saveBook = document.getElementById("saveB");
 
 function myList(favorite){
     
@@ -177,20 +175,35 @@ function myList(favorite){
         alert('Vous ne pouvez ajouter deux fois le même livre')
 } else {
 
+//#################################### affichage du livre enregistré dans ma poch'list########################################
+
     let myBook = document.createElement('section');
     myBook.className = 'favoriteBook';
     myBook.setAttribute("id", favorite);
-    myBook.getElementById(favorite);
+    myBook.getElementsByClassName(favorite);
     let outputList = document.getElementById(favorite);
-    let list = document.getElementById("h2");
+    let list = document.getElementById("list");
 
-    myBook = outputList.cloneNode(true);
+    bookCard = outputList.cloneNode(true);
+    myBook.appendChild(bookCard);
     list.appendChild(myBook);
+    
+
+    // remplacement de l'icone marquepage avec l'icone corbeille //
+    let bookMark = myBook.querySelector('.bookMark');
+    let bookTrash = document.createElement('div');
+    bookTrash.className = 'bookTrash';
+    bookTrash.innerHTML = `<i class="fa-solid fa-trash" ></i>`;
+    bookMark.replaceWith(bookTrash);
+
     sessionStorage.setItem(favorite, myBook.innerHTML);
+
+
 }
    
 }
-saveBook.addEventListener("click", myList);
+
+//saveBook.addEventListener("click", myList);
 
 
 
