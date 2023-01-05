@@ -221,7 +221,7 @@ function deleteBook(favorite){
     sessionStorage.removeItem(favorite);
 }
 
-window.onload = function () {
+/*window.onload = function () {
 
     let list = document.querySelector('.list');
 
@@ -238,7 +238,7 @@ window.onload = function () {
             }
             console.log("onload:" + i + "/" + favorite);
     }
-}
+}*/
 
 //saveBook.addEventListener("click", myList);
 
