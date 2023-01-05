@@ -2,7 +2,7 @@
 
 let main = document.getElementById("main");
 let imgsrc = "D:/P6/Nouveau dossier/logo/unavailable.png"
-let bookmark = "D:/P6/Nouveau dossier/logo/signet (2).png"
+let bookmark = `<i class="fa-solid fa-bookmark"></i>`
  let id, title, author, description, bookImg, bookMark
 
 
@@ -145,6 +145,7 @@ function displayResults(book){
  
     
 // format resultat de recherche 
+//<button input type="button" id="saveB" onclick="myList('${id}')"  style="text-align: right">
 
 function formatOutput(bookImg, title, authors, description, id){
     
@@ -153,7 +154,7 @@ function formatOutput(bookImg, title, authors, description, id){
         }
     var a =
   `<header>
-          <button input type="button" id="saveB" onclick="myList('${id}')"  style="text-align: right"><img src="${bookmark}" classe= "bookmark"></button>
+    <div class="bookMark"><i class="fa-solid fa-bookmark" onclick = myList('${id}')></i></div>
   <div class="title"><h3>${title}</h3></div>
   </header>
   <div class="authors"><h4>${authors}</h4></div>
@@ -193,14 +194,50 @@ function myList(favorite){
     let bookMark = myBook.querySelector('.bookMark');
     let bookTrash = document.createElement('div');
     bookTrash.className = 'bookTrash';
-    bookTrash.innerHTML = `<i class="fa-solid fa-trash" ></i>`;
+    bookTrash.innerHTML = `<i class="fa-solid fa-trash" onclick="deleteBook('${favorite}')" ></i>`;
     bookMark.replaceWith(bookTrash);
 
     sessionStorage.setItem(favorite, myBook.innerHTML);
 
+// supression du livre dans ma poche liste //
+bookTrash.addEventListener('click', function removeSaveBook() {
+    myBook.parentElement.removeChild(myBook);
+    sessionStorage.removeItem(favorite);});
 
 }
    
+}
+// function de supression du livre dans la liste //
+function deleteBook(favorite){
+
+    let myBook = document.getElementsByClassName(favorite)
+    let list = document.getElementById("list");
+    
+    
+
+    myBook.removeChild(bookCard);
+    list.removeChild(myBook);
+    
+    sessionStorage.removeItem(favorite);
+}
+
+window.onload = function () {
+
+    let list = document.querySelector('.list');
+
+    for (let i = 0; i < sessionStorage.length; i++) {
+
+            let value = sessionStorage.getItem(sessionStorage.key(i));
+            let favorite = sessionStorage.key(i);
+
+            if (favorite != "IsThisFirstTime_Log_From_LiveServer") {
+                    let myBook = document.createElement('section');
+                    myBook.setAttribute("id", favorite);
+                    myBook.innerHTML = value;
+                    list.appendChild(myBook);
+            }
+            console.log("onload:" + i + "/" + favorite);
+    }
 }
 
 //saveBook.addEventListener("click", myList);
