@@ -200,7 +200,7 @@ function myList(favorite){
     sessionStorage.setItem(favorite, myBook.innerHTML);
 
 // supression du livre dans ma poche liste //
-bookTrash.addEventListener('click', function removeSaveBook() {
+bookTrash.addEventListener('click', function deleteBook() {
     myBook.parentElement.removeChild(myBook);
     sessionStorage.removeItem(favorite);});
 
@@ -210,37 +210,58 @@ bookTrash.addEventListener('click', function removeSaveBook() {
 // function de supression du livre dans la liste //
 function deleteBook(favorite){
 
-    let myBook = document.getElementsByClassName(favorite)
-    let list = document.getElementById("list");
+    let myBook =   document.getElementById(favorite);
+    let list = document.getElementById('list');
+    //myBook.setAttribute("id", "favorite");
+    //myBook.getElementsById("favorite");
+    //let bookCard = document.getElementById(favorite);
+    //let bookCard = document.getElementsByClassName(outputlist);
     
-    
+    //bookCard.removeChild(myBook);
+    //myBook = document.removeChild(list);
 
-    myBook.removeChild(bookCard);
+    //document.getElementById(list).removeChild(myBook);
+   // myBook.removeChild(bookCard);
+   //myBook.removeChild(outputList);
+   // myBook.removeChild(bookCard)
+
     list.removeChild(myBook);
+    
     
     sessionStorage.removeItem(favorite);
 }
 
-/*window.onload = function () {
+window.onload = function () {
 
-    let list = document.querySelector('.list');
+    let list = document.getElementById("list");
+    
 
     for (let i = 0; i < sessionStorage.length; i++) {
 
             let value = sessionStorage.getItem(sessionStorage.key(i));
             let favorite = sessionStorage.key(i);
+            let myBook = '';
+            
+           
 
             if (favorite != "IsThisFirstTime_Log_From_LiveServer") {
                     let myBook = document.createElement('section');
                     myBook.setAttribute("id", favorite);
+                    myBook.getElementsByClassName(favorite);
                     myBook.innerHTML = value;
+                    //bookCard = document.getElementsByClassName(favorite);
+                    
+                    //myBook.appendChild(bookCard);
                     list.appendChild(myBook);
             }
+            
             console.log("onload:" + i + "/" + favorite);
+            //sessionStorage.setItem(favorite, myBook.innerHTML);
     }
-}*/
+    
+}
 
-//saveBook.addEventListener("click", myList);
+
 
 
 
