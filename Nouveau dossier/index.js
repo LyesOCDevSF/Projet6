@@ -11,12 +11,14 @@ let bookmark = `<i class="fa-solid fa-bookmark"></i>`
 
 main.innerHTML= `<button input type="button" id="btnAdd" onclik= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
 <div id="div1"></br>
-Titre du livre <input id="champTitre" type="text" value=""></br>
+<form>
+<label>Titre du livre </label><input id="champTitre" type="text" value=""></br>
 </br>
-Auteur du Livre <input id="champAuteur" type="text" value=""></br>
+<label>Auteur du Livre</label><input id="champAuteur" type="text" value=""></br>
 </br>
 <button inputType="Search" id="btnSearch" style="text-align:center">Rechercher</button>
 <button input type="reset" id="btn2" style="text-align: center">Annuler</button>
+</form>
 </div></br>
 <div class="bookList">
 <h2 id= "Result" class="text-center">Résultat de recherche</h2>
@@ -93,7 +95,7 @@ function searchBook(){
             displayError();
         }
             else{
-                fetch(bookUrl, /*{mode:'no-cors', credentials:'include'}*/)
+                fetch(bookUrl)
                 .then(function(response){
                     return response.json();
                 })
@@ -110,7 +112,8 @@ function searchBook(){
                     data.items.forEach(book =>{
                     displayResults(book);})})
                     }  
-            }
+                }
+            
 
 btnSearch.addEventListener("click", searchBook);
 
@@ -119,9 +122,7 @@ btnSearch.addEventListener("click", searchBook);
 //let outputList = document.getElementById("list-output");
 
 function displayResults(book){
-    //console.log(data.items);
-        //item = book.items[i];
-       
+           
         let outputList = document.createElement('section');
         outputList.className = 'outputlist';
         outputList.setAttribute("id", book.id);
@@ -154,7 +155,7 @@ function displayResults(book){
  
     
 // format resultat de recherche 
-//<button input type="button" id="saveB" onclick="myList('${id}')"  style="text-align: right">
+
 
 function formatOutput(bookImg, title, authors, description, id){
     
@@ -245,9 +246,6 @@ window.onload = function () {
                     myBook.setAttribute("id", favorite);
                     myBook.getElementsByClassName(favorite);
                     myBook.innerHTML = value;
-                    
-                    
-                    
                     list.appendChild(myBook);
             }
             
