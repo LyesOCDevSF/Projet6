@@ -24,10 +24,7 @@ Auteur du Livre <input id="champAuteur" type="text" value=""></br>
 </div>
 </div>`
 
-/*<div id="list-output" class="">
-<div class="row">
-</div>
-</div>*/
+
 
 
 let add = document.getElementById("btnAdd");
@@ -76,7 +73,7 @@ function searchBook(){
     
    
     
-    if(searchTitle.value == ""){
+    if(searchTitle.value == "" ){
         alert("Veuillez renseigner un titre.");
         searchTitle.focus();
         return false;
@@ -102,6 +99,14 @@ function searchBook(){
                 })
                 .then(function(data){
                     console.log(data);
+                    if (searchData1 == "" || searchData1 == undefined) {
+                        alert("Merci de renseigner le titre du livre");
+                }
+                else if (data.totalItems === 0) {
+
+                        alert("Aucun Résultat");
+                }
+                else {}
                     data.items.forEach(book =>{
                     displayResults(book);})})
                     }  
@@ -123,8 +128,12 @@ function displayResults(book){
             outputList.style.display="none";
 
         title = book.volumeInfo.title;
-        authors = book.volumeInfo.authors;
-        description =(book.volumeInfo.description).substring(0, 200);
+        //authors = book.volumeInfo.authors;
+        authors = book.volumeInfo.authors && book.volumeInfo.authors.length ? book.volumeInfo.authors[0] : "inconnu";
+        if(book && book.volumeInfo && book.volumeInfo.description){
+            description =(book.volumeInfo.description).substring(0, 200);
+        }
+        //description =(book.volumeInfo.description).substring(0, 200);
         bookImg = (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.smallThumbnail : imgsrc;
         id = book.id;
     
@@ -149,9 +158,9 @@ function displayResults(book){
 
 function formatOutput(bookImg, title, authors, description, id){
     
-        if(display.style.display = "none"){
-            display.style.display= "block";
-        }
+    if(display.style.display === "none"){
+        display.style.display= "block";
+    }
     var a =
   `<header>
     <div class="bookMark"><i class="fa-solid fa-bookmark" onclick = myList('${id}')></i></div>
@@ -210,21 +219,8 @@ bookTrash.addEventListener('click', function deleteBook() {
 // function de supression du livre dans la liste //
 function deleteBook(favorite){
 
-    let myBook =   document.getElementById(favorite);
+    let myBook = document.getElementById(favorite);
     let list = document.getElementById('list');
-    //myBook.setAttribute("id", "favorite");
-    //myBook.getElementsById("favorite");
-    //let bookCard = document.getElementById(favorite);
-    //let bookCard = document.getElementsByClassName(outputlist);
-    
-    //bookCard.removeChild(myBook);
-    //myBook = document.removeChild(list);
-
-    //document.getElementById(list).removeChild(myBook);
-   // myBook.removeChild(bookCard);
-   //myBook.removeChild(outputList);
-   // myBook.removeChild(bookCard)
-
     list.removeChild(myBook);
     
     
@@ -249,14 +245,14 @@ window.onload = function () {
                     myBook.setAttribute("id", favorite);
                     myBook.getElementsByClassName(favorite);
                     myBook.innerHTML = value;
-                    //bookCard = document.getElementsByClassName(favorite);
                     
-                    //myBook.appendChild(bookCard);
+                    
+                    
                     list.appendChild(myBook);
             }
             
             console.log("onload:" + i + "/" + favorite);
-            //sessionStorage.setItem(favorite, myBook.innerHTML);
+            
     }
     
 }
