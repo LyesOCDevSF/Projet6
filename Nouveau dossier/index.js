@@ -11,12 +11,14 @@ let bookmark = `<i class="fa-solid fa-bookmark"></i>`
 
 main.innerHTML= `<button input type="button" id="btnAdd" onclick= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
 <div id="div1"></br>
-<label>Titre du livre </label><input id="champTitre" type="text" value=""></br>
+<label class="labelTitre">Titre du livre </label><input id="champTitre" type="text" value=""></br>
 </br>
-<label>Auteur du Livre</label><input id="champAuteur" type="text" value=""></br>
+<label class="labelAuteur">Auteur du Livre</label><input id="champAuteur" type="text" value=""></br>
 </br>
+<div id="div2">
 <button inputType="Search" onclick= "function searchBook()" id="btnSearch" style="text-align:center">Rechercher</button>
 <button input type="reset" id="btn2" style="text-align: center">Annuler</button>
+</div>
 </div></br>
 <div class="bookList">
 <h2 id= "Result" class="text-center">Résultat de recherche</h2>
