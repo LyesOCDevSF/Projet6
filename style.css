@@ -130,6 +130,53 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
   grid-gap: 5px;
 }
 
+
+/*#btnSearch, #btn2 {
+  display: block;
+}*/
+
+
+
+#btnSearch, #btn2 {
+  display: block;
+  float: left;
+}
+
+
+
+
+#div1 button{
+  display:block;
+}
+#div1 {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+#div2 {
+  display: flex;
+  flex-direction: column; /* pour que les boutons s'affichent l'un sous l'autre*/
+  align-items: left;
+}
+
+.labelTitre {
+  float: left;
+}
+
+.labelAuteur {
+  float: left;
+}
+
+
+
+#btnSearch, #btn2 {
+  width: 20%;
+}
+
+
+
+
 .card-image img {
   width: 100%;
   border-radius: 5%;

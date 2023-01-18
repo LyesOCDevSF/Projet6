@@ -9,16 +9,16 @@ let bookmark = `<i class="fa-solid fa-bookmark"></i>`
 
 
 
-main.innerHTML= `<button input type="button" id="btnAdd" onclik= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
+main.innerHTML= `<button input type="button" id="btnAdd" onclick= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
 <div id="div1"></br>
-<form>
-<label>Titre du livre </label><input id="champTitre" type="text" value=""></br>
+<label class="labelTitre">Titre du livre </label><input id="champTitre" type="text" value=""></br>
 </br>
-<label>Auteur du Livre</label><input id="champAuteur" type="text" value=""></br>
+<label class="labelAuteur">Auteur du Livre</label><input id="champAuteur" type="text" value=""></br>
 </br>
-<button inputType="Search" id="btnSearch" style="text-align:center">Rechercher</button>
+<div id="div2">
+<button inputType="Search" onclick= "function searchBook()" id="btnSearch" style="text-align:center">Rechercher</button>
 <button input type="reset" id="btn2" style="text-align: center">Annuler</button>
-</form>
+</div>
 </div></br>
 <div class="bookList">
 <h2 id= "Result" class="text-center">Résultat de recherche</h2>
@@ -63,17 +63,16 @@ btnCancel.addEventListener("click", cancelSearch);
 
 // bouton recherche : recherche le livre demandé 
 const btnSearch = document.getElementById("btnSearch");
+
 function searchBook(){
 
     
-    let bookUrl = "https://www.googleapis.com/books/v1/volumes?q="
+    let bookUrl = "https://www.googleapis.com/books/v1/volumes?q=";
     let searchTitle = document.getElementById("champTitre");
     let searchAuthor = document.getElementById("champAuteur");
     let searchData1;
     let searchData2;
-    
-    
-   
+
     
     if(searchTitle.value == "" ){
         alert("Veuillez renseigner un titre.");
@@ -96,23 +95,20 @@ function searchBook(){
         }
             else{
                 fetch(bookUrl)
-                .then(function(response){
-                    return response.json();
+               .then(function(response){
+                    console.log(response);
+                   return response.json();
                 })
                 .then(function(data){
                     console.log(data);
-                    if (searchData1 == "" || searchData1 == undefined) {
-                        alert("Merci de renseigner le titre du livre");
-                }
-                else if (data.totalItems === 0) {
-
-                        alert("Aucun Résultat");
-                }
-                else {}
                     data.items.forEach(book =>{
-                    displayResults(book);})})
-                    }  
+                    displayResults(book);})
+                })
+                     
                 }
+            }
+        
+    
             
 
 btnSearch.addEventListener("click", searchBook);

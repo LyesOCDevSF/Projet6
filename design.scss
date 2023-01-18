@@ -213,10 +213,12 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
   
   #btnSearch, #btnAdd {
     background-color: #22b1a3;
+    display: block;
   }
   
   #btn2 {
     background-color: #F53526;
+    display: block;
   }
   
   .bookmark {
