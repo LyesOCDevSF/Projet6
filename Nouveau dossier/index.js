@@ -115,7 +115,7 @@ btnSearch.addEventListener("click", searchBook);
 
 
 // affichage des resultats de la recherche 
-//let outputList = document.getElementById("list-output");
+
 
 function displayResults(book){
            
@@ -125,12 +125,12 @@ function displayResults(book){
             outputList.style.display="none";
 
         title = book.volumeInfo.title;
-        //authors = book.volumeInfo.authors;
+        
         authors = book.volumeInfo.authors && book.volumeInfo.authors.length ? book.volumeInfo.authors[0] : "inconnu";
         if(book && book.volumeInfo && book.volumeInfo.description){
             description =(book.volumeInfo.description).substring(0, 200);
         }
-        //description =(book.volumeInfo.description).substring(0, 200);
+        
         bookImg = (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.smallThumbnail : imgsrc;
         id = book.id;
     
@@ -174,15 +174,16 @@ function formatOutput(bookImg, title, authors, description, id){
 
 
 
-//let saveBook = document.getElementById("saveB");
+//#################################### affichage du livre enregistré dans ma poch'list########################################
+
 
 function myList(favorite){
     
     if (sessionStorage.getItem(favorite)) {
         alert('Vous ne pouvez ajouter deux fois le même livre')
-} else {
+        }
+         else {
 
-//#################################### affichage du livre enregistré dans ma poch'list########################################
 
     let myBook = document.createElement('section');
     myBook.className = 'favoriteBook';
@@ -223,6 +224,8 @@ function deleteBook(favorite){
     
     sessionStorage.removeItem(favorite);
 }
+
+//############################## session storage après rafraichissement de la page ################################
 
 window.onload = function () {
 
