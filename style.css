@@ -1,4 +1,3 @@
-
 .myBooks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -7,64 +6,19 @@
 
 
 
-
-
-
-#btnSearch, #btn2 {
-  display: block;
-  float: left;
-}
-
-
-
-
-#div1 button{
-  display:block;
-}
-#div1 {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-}
-
-#div2 {
-  display: flex;
-  flex-direction: column; /* pour que les boutons s'affichent l'un sous l'autre*/
-  align-items: left;
-}
-
-.labelTitre {
-  float: left;
-}
-
-.labelAuteur {
-  float: left;
-}
-
-
-
-#btnSearch, #btn2 {
-  width: 25%;
-}
-
-
-
-
-
-
-
-
-@media only screen and (min-width: 768px) and (max-width: 2560px) {
+@media only screen and (min-width: 200px) and (max-width: 2000px) {
   .myBooks {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.btn1 {
+.btnAdd {
   background-color: aquamarine;
   color: green;
   border-radius: 3rem;
   width: 100%;
   padding: 1, 5rem;
+  justify-content: center;
+  align-self: center;
 }
 
 body img, body .imgBook {
@@ -121,10 +75,12 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 
 #btnSearch, #btnAdd {
   background-color: #22b1a3;
+  display: block;
 }
 
 #btn2 {
   background-color: #F53526;
+  display: block;
 }
 
 .bookmark {
