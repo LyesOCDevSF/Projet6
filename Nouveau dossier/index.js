@@ -9,7 +9,7 @@ let bookmark = `<i class="fa-solid fa-bookmark"></i>`
 
 
 
-main.innerHTML= `<button input type="button" id="btnAdd" onclick= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
+main.innerHTML= `<button input type="button" id="btnAdd" onclick= "function addBooks()"   class=".btn" style="text-align: center; display: inline">Ajouter un livre</button>
 <div id="div1"></br>
 <label class="labelTitre">Titre du livre </label><input id="champTitre" type="text" value=""></br>
 </br>
