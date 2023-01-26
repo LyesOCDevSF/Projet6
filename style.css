@@ -117,23 +117,15 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 
 
 
-@media only screen and (min-width:601px) and (max-width: 2000px) {
-  .displayBook {
-    display: grid;
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 2560px) {
+  .myBooks {
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5px;
   }
-
-
-/*.displayBook {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
-}*/
-
-
-
-.btnAdd {
+}
+.btn1 {
   background-color: aquamarine;
   color: green;
   border-radius: 3rem;
@@ -222,7 +214,6 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 #bookmark {
   height: 15px;
   width: 15px;
-}
 }
 
 /*# sourceMappingURL=style.css.map */
