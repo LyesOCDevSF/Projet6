@@ -9,11 +9,11 @@ let bookmark = `<i class="fa-solid fa-bookmark"></i>`
 
 
 
-main.innerHTML= `<button input type="button" id="btnAdd" onclick= "function addBooks()"   class=".btn" style="text-align: center">Ajouter un livre</button>
+main.innerHTML= `<button input type="button" id="btnAdd" onclick= "function addBooks()"   class=".btn" style="text-align: center; display: inline">Ajouter un livre</button>
 <div id="div1"></br>
-<label class="labelTitre">Titre du livre </label><input id="champTitre" type="text" value=""></br>
+<label class="labelTitre" style:"text-align: inherit">Titre du livre </label><input id="champTitre" type="text" value=""></br>
 </br>
-<label class="labelAuteur">Auteur du Livre</label><input id="champAuteur" type="text" value=""></br>
+<label class="labelAuteur" style:"text-align: inherit">Auteur du Livre</label><input id="champAuteur" type="text" value=""></br>
 </br>
 <div id="div2">
 <button inputType="Search" onclick= "function searchBook()" id="btnSearch" style="text-align:center">Rechercher</button>
@@ -120,6 +120,7 @@ btnSearch.addEventListener("click", searchBook);
 function displayResults(book){
            
         let outputList = document.createElement('section');
+        //outputList.style.gridColumn = "span 1";
         outputList.className = 'outputlist';
         outputList.setAttribute("id", book.id);
             outputList.style.display="none";
@@ -156,7 +157,7 @@ function displayResults(book){
 function formatOutput(bookImg, title, authors, description, id){
     
     if(display.style.display === "none"){
-        display.style.display= "block";
+        display.style.display= "grid";
     }
     var a =
   `<header>

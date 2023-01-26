@@ -1,70 +1,18 @@
-
-.myBooks {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
-}
-
-
-
-
-
-
-#btnSearch, #btn2 {
-  display: block;
-  float: left;
-}
-
-
-
-
-#div1 button{
-  display:block;
-}
-#div1 {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-}
-
-#div2 {
-  display: flex;
-  flex-direction: column; /* pour que les boutons s'affichent l'un sous l'autre*/
-  align-items: left;
-}
-
-.labelTitre {
-  float: left;
-}
-
-.labelAuteur {
-  float: left;
-}
-
-
-
-#btnSearch, #btn2 {
-  width: 25%;
-}
-
-
-
-
-
-
-
-
-@media only screen and (min-width: 768px) and (max-width: 2560px) {
-  .myBooks {
-    grid-template-columns: repeat(3, 1fr);
+/*@media only screen and (max-width: 600px) {
+  .displayBook {
+    grid-template-columns: 1fr;
   }
-}
-.btn1 {
+}*/
+
+
+.btnAdd {
   background-color: aquamarine;
   color: green;
   border-radius: 3rem;
   width: 100%;
   padding: 1, 5rem;
+  justify-content: center;
+  align-self: center;
 }
 
 body img, body .imgBook {
@@ -87,6 +35,11 @@ body section {
   background: #e9e9e9;
   color: #24615B;
   position: relative;
+  
+  /*display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  grid-column: span 1;*/
 }
 
 body section section > header {
@@ -121,10 +74,12 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 
 #btnSearch, #btnAdd {
   background-color: #22b1a3;
+  display: block;
 }
 
 #btn2 {
   background-color: #F53526;
+  display: block;
 }
 
 .bookmark {
@@ -139,6 +94,135 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 #bookmark {
   height: 15px;
   width: 15px;
+}
+.div1{
+  text-align: left;
+}
+#main.h2.labelTitre{
+  text-align: inherit;
+  text-align: left;
+  margin-left: auto;
+  justify-content: left;
+  display:flex;
+}
+#main.h2.labelAuteur{
+  text-align: inherit;
+  text-align: left;
+  margin-left: auto;
+  justify-content: left;
+  display:flex;
+}
+
+
+
+
+
+@media only screen and (min-width:601px) and (max-width: 2000px) {
+  .displayBook {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+  }
+
+
+/*.displayBook {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}*/
+
+
+
+.btnAdd {
+  background-color: aquamarine;
+  color: green;
+  border-radius: 3rem;
+  width: 100%;
+  padding: 1, 5rem;
+  justify-content: center;
+  align-self: center;
+}
+
+.body img, body .imgBook {
+  width: auto;
+  height: 200px;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 5%;
+}
+
+.list-output {
+  display: flex;
+}
+
+.body section {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #797979;
+  margin: 5px;
+  background: #e9e9e9;
+  color: #24615B;
+  position: relative;
+  
+  display: block;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  grid-column: span 1;
+}
+
+body section section > header {
+  font-family: "Roboto", sans-serif;
+  color: #24615B;
+  font-weight: bolder;
+}
+
+body input[type=text] {
+  height: 35px;
+  width: 100%;
+  border: 1px #e9e9e9 solid;
+  border-radius: 2px;
+  margin: 2px;
+}
+
+body input[type=text]:hover {
+  background-color: #e9e9e9;
+}
+
+body button, body .btnSearch, body .btnAdd, body .btn2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px 10px 20px;
+  margin: 2px;
+  width: 300px;
+}
+
+#btnSearch, #btnAdd {
+  background-color: #22b1a3;
+  display: block;
+}
+
+#btn2 {
+  background-color: #F53526;
+  display: block;
+}
+
+.bookmark {
+  display: block;
+  font-size: 28px;
+  color: #22b1a3;
+  position: relative;
+  bottom: 20%;
+  left: 92%;
+}
+
+#bookmark {
+  height: 15px;
+  width: 15px;
+}
 }
 
 /*# sourceMappingURL=style.css.map */
