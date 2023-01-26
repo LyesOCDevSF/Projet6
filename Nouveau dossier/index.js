@@ -17,7 +17,7 @@ main.innerHTML= `<button input type="button" id="btnAdd" onclick= "function addB
 </br>
 <div id="div2">
 <button inputType="Search" onclick= "function searchBook()" id="btnSearch" style="text-align:center">Rechercher</button>
-<button input type="reset" id="btn2" style="text-align: center">Annuler</button>
+<button input type="reset" id="btnCancel" style="text-align: center">Annuler</button>
 </div>
 </div></br>
 <div class="bookList">
@@ -54,7 +54,7 @@ add.addEventListener("click", addBooks);
 
 
 // bouton annuler la recherche : rafraichissement de la page 
-let btnCancel = document.getElementById("btn2");
+let btnCancel = document.getElementById("btnCancel");
 function cancelSearch(){
     
     location.reload();
