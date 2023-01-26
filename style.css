@@ -1,8 +1,4 @@
-/*@media only screen and (max-width: 600px) {
-  .displayBook {
-    grid-template-columns: 1fr;
-  }
-}*/
+
 
 
 .btnAdd {
@@ -98,42 +94,46 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 .div1{
   text-align: left;
 }
-#main.h2.labelTitre{
-  text-align: inherit;
+.labelTitre{
+  
   text-align: left;
   margin-left: auto;
   justify-content: left;
   display:flex;
 }
-#main.h2.labelAuteur{
+.labelAuteur{
   text-align: inherit;
   text-align: left;
   margin-left: auto;
   justify-content: left;
   display:flex;
+
 }
 
 
 
 
 
-@media only screen and (min-width:601px) and (max-width: 2000px) {
-  .displayBook {
+
+
+
+@media only screen and (min-width: 600px) and (max-width: 2560px) {
+  .bookList.displayBook {
+    display: grid;
+    display: -ms-grid;
+    -ms-grid-columns: (3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+  }
+  
+  .outputlist {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
   }
-
-
-/*.displayBook {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
-}*/
-
-
-
-.btnAdd {
+  
+}
+.btn1 {
   background-color: aquamarine;
   color: green;
   border-radius: 3rem;
@@ -151,9 +151,9 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
   border-radius: 5%;
 }
 
-.list-output {
+/*.list-output {
   display: flex;
-}
+}*/
 
 .body section {
   padding: 20px;
@@ -222,7 +222,6 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 #bookmark {
   height: 15px;
   width: 15px;
-}
 }
 
 /*# sourceMappingURL=style.css.map */
