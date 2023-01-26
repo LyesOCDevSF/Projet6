@@ -1,7 +1,18 @@
 
+/*<<<<<<< Updated upstream
+=======
+/*.bookList.displayBook {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}*/
 
 
-.btnAdd {
+
+/*>>>>>>> Stashed changes*/
+
+
+/*.btnAdd {
   background-color: aquamarine;
   color: green;
   border-radius: 3rem;
@@ -36,7 +47,7 @@ body section {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
   grid-column: span 1;*/
-}
+/*}
 
 body section section > header {
   font-family: "Roboto", sans-serif;
@@ -117,6 +128,7 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 
 
 
+/*<<<<<<< Updated upstream
 @media only screen and (min-width: 600px) and (max-width: 2560px) {
   .bookList.displayBook {
     display: grid;
@@ -124,6 +136,13 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
     -ms-grid-columns: (3, 1fr);
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
+=======
+@media only screen and (min-width: 768px) and (max-width: 2560px) {
+  .displayBook {
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+>>>>>>> Stashed changes
   }
   
   .outputlist {
@@ -155,7 +174,7 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
   display: flex;
 }*/
 
-.body section {
+/*.body section {
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #797979;
@@ -163,17 +182,26 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
   background: #e9e9e9;
   color: #24615B;
   position: relative;
+<<<<<<< Updated upstream
   
   display: block;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
   grid-column: span 1;
+=======
+  width:50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  
+>>>>>>> Stashed changes
 }
 
 body section section > header {
   font-family: "Roboto", sans-serif;
   color: #24615B;
   font-weight: bolder;
+  
 }
 
 body input[type=text] {
@@ -225,3 +253,184 @@ body button, body .btnSearch, body .btnAdd, body .btn2 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+
+
+
+
+/*################################################boutons #######################*/
+#btnSearch, #btnAdd {
+  background-color: #22b1a3;
+  display: block;
+}
+#btnCancel{
+  background-color: #F53526;
+  display: block;
+}
+
+body button, body .btnSearch, body .btnAdd, body .btnCancel{
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px 10px 20px;
+  margin: 2px;
+  width: 300px;
+}
+
+
+/*############################## label and input ###################################*/
+
+
+.labelTitre{
+  
+  text-align: left;
+  margin-left: auto;
+  justify-content: left;
+  display:flex;
+}
+.labelAuteur{
+  text-align: inherit;
+  text-align: left;
+  margin-left: auto;
+  justify-content: left;
+  display:flex;
+
+}
+
+
+
+
+body input[type=text] {
+  height: 35px;
+  width: 100%;
+  border: 1px #e9e9e9 solid;
+  border-radius: 2px;
+  margin: 2px;
+}
+
+body input[type=text]:hover {
+  background-color: #e9e9e9;
+}
+
+/*######################### Bookcard #####################################*/
+.body img, body .imgBook {
+  width: auto;
+  height: 200px;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 5%;
+}
+
+.displayBook{ 
+  padding: 20px;
+  border-radius: 5px;
+  /*border: 1px solid #797979;*/
+  margin: 5px;
+  background: #ffffff;
+  color: #24615B;
+  position: relative;
+ /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  grid-column: span 1;*/
+}
+section.outputlist {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #797979;
+  margin: 5px;
+  background: #e9e9e9;
+  color: #24615B;
+  position: relative;
+  width:100%;
+  
+}
+
+body section.outputlist > header {
+  font-family: "Roboto", sans-serif;
+  color: #24615B;
+  font-weight: bolder;
+  
+}
+.list{
+  padding: 20px;
+  border-radius: 5px;
+  margin: 5px;
+  background: #ffffff;
+  color: #24615B;
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 2560px) {
+
+#displayBook{ 
+  padding: 20px;
+  border-radius: 5px;
+  /*border: 1px solid #797979;*/
+  margin: 5px;
+  background: #ffffff;
+  color: #24615B;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  grid-column: span 1;
+}
+section.outputlist {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #797979;
+  margin: 5px;
+  background: #e9e9e9;
+  color: #24615B;
+  position: relative;
+  width:80%;
+  
+}
+/*#content{
+  padding: 20px;
+  border-radius: 5px;
+  margin: 5px;
+  background: #ffffff;
+  color: #24615B;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  grid-column: span 1;
+}*/
+#list{
+  padding: 20px;
+  border-radius: 5px;
+  margin: 5px;
+  background: #ffffff;
+  color: #24615B;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  grid-column: span 1;
+}
+/*section{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  grid-column: span 1;
+
+}*/
+section.section.outputlist{
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #797979;
+  margin: 5px;
+  background: #e9e9e9;
+  color: #24615B;
+  position: relative;
+  width:80%;
+}
+}
