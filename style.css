@@ -392,7 +392,7 @@ section.outputlist {
   width:80%;
   
 }
-/*#content{
+#content{
   padding: 20px;
   border-radius: 5px;
   margin: 5px;
@@ -412,9 +412,9 @@ section.outputlist {
   color: #24615B;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+ /* grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
-  grid-column: span 1;
+  grid-column: span 1;*/
 }
 /*section{
   display: grid;
@@ -423,6 +423,9 @@ section.outputlist {
   grid-column: span 1;
 
 }*/
+.content.section.outputlist{
+  display: grid;
+}
 section.section.outputlist{
   padding: 20px;
   border-radius: 5px;
