@@ -101,9 +101,14 @@ function searchBook(){
                 })
                 .then(function(data){
                     console.log(data);
+                    if (data.totalItems === 0) {
+
+                        alert("Aucun Résultat");
+                    }
                     data.items.forEach(book =>{
                     displayResults(book);})
                 })
+               
                      
                 }
             }
