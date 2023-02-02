@@ -366,7 +366,7 @@ body section.outputlist > header {
   position: relative;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 2560px) {
+@media only screen and (min-width: 600px) and (max-width: 2560px) {
 
 #displayBook{ 
   padding: 20px;
