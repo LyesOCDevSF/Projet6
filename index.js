@@ -1,7 +1,7 @@
 
 
 let main = document.getElementById("main");
-let imgsrc = "D:/P6/Nouveau dossier/logo/unavailable.png"
+let imgsrc = "D:/P6/unavailable.png"
 let bookmark = `<i class="fa-solid fa-bookmark"></i>`
  let id, title, author, description, bookImg, bookMark
 
