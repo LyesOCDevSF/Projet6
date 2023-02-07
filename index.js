@@ -17,6 +17,7 @@ main.innerHTML= `<button input type="button" id="btnAdd" onclick= "function addB
 </br>
 <div id="div2">
 <button inputType="Search" onclick= "function searchBook()" id="btnSearch" style="text-align:center">Rechercher</button>
+</br>
 <button input type="reset" id="btnCancel" style="text-align: center">Annuler</button>
 </div>
 </div></br>
