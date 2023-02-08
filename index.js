@@ -3,7 +3,7 @@
 let main = document.getElementById("main");
 let imgsrc = "D:/P6/unavailable.png"
 let bookmark = `<i class="fa-solid fa-bookmark"></i>`
- let id, title, author, description, bookImg, bookMark
+let id, title, author, description, bookImg, bookMark
 
 
 
@@ -129,7 +129,7 @@ function displayResults(book){
         //outputList.style.gridColumn = "span 1";
         outputList.className = 'outputlist';
         outputList.setAttribute("id", book.id);
-            outputList.style.display="none";
+        outputList.style.display="none";
 
         title = book.volumeInfo.title;
         
@@ -192,17 +192,16 @@ function myList(favorite){
          else {
 
 
+   
     let myBook = document.createElement('section');
     myBook.className = 'favoriteBook';
     myBook.setAttribute("id", favorite);
-    myBook.getElementsByClassName(favorite);
-    let outputList = document.getElementById(favorite);
-    let list = document.getElementById("list");
 
-    bookCard = outputList.cloneNode(true);
+    let bookCard = document.getElementById(favorite).cloneNode(true);
     myBook.appendChild(bookCard);
-    list.appendChild(myBook);
-    
+
+    let save = document.getElementById("save");
+    save.appendChild(myBook);
 
     // remplacement de l'icone marquepage avec l'icone corbeille //
     let bookMark = myBook.querySelector('.bookMark');
@@ -214,7 +213,7 @@ function myList(favorite){
     sessionStorage.setItem(favorite, myBook.innerHTML);
 
 // supression du livre dans ma poche liste //
-bookTrash.addEventListener('click', function deleteBook() {
+    bookTrash.addEventListener('click', function deleteBook() {
     myBook.parentElement.removeChild(myBook);
     sessionStorage.removeItem(favorite);});
 
@@ -252,7 +251,12 @@ window.onload = function () {
                     myBook.setAttribute("id", favorite);
                     myBook.getElementsByClassName(favorite);
                     myBook.innerHTML = value;
-                    list.appendChild(myBook);
+
+                    let save = document.getElementById("save");
+                    
+                    save.appendChild(myBook);
+
+                   
             }
             
             console.log("onload:" + i + "/" + favorite);
