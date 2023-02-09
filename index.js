@@ -224,8 +224,8 @@ function myList(favorite){
 function deleteBook(favorite){
 
     let myBook = document.getElementById(favorite);
-    let list = document.getElementById('list');
-    list.removeChild(myBook);
+    let save = document.getElementById('save');
+    save.removeChild(myBook);
     
     
     sessionStorage.removeItem(favorite);

@@ -145,6 +145,15 @@ section.outputlist {
   color: #24615B;
   position: relative;
   width:80%;
+  font-family: "Roboto", sans-serif;
+  color: #24615B;
+  font-weight: bolder;
+  
+}
+#section.outputlist > header {
+  font-family: "Roboto", sans-serif;
+  color: #24615B;
+  font-weight: bolder;
   
 }
 
