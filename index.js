@@ -16,6 +16,7 @@ newBooks = myBooks.insertBefore(newBooks, line);
 
 const btnAdd = document.createElement("button");
 const btnLabel = document.createTextNode("Ajouter un livre");
+btnAdd.id = "btnAdd";
 newBooks.appendChild(btnAdd);
 btnAdd.appendChild(btnLabel);
 
@@ -46,6 +47,7 @@ form.appendChild(inputAuthor);
 
 let btnSearch = document.createElement("button");
 const btnLabelSearch = document.createTextNode("Rechercher");
+btnSearch.id = "btnSearch";
 formContainer.appendChild(btnSearch);
 btnSearch.appendChild(btnLabelSearch);
 
@@ -54,6 +56,7 @@ formContainer.appendChild(br);
 
 let btnCancel = document.createElement("button");
 const btnLabelCancel = document.createTextNode("Annuler");
+btnCancel.id = "btnCancel";
 formContainer.appendChild(btnCancel);
 btnCancel.appendChild(btnLabelCancel);
 
