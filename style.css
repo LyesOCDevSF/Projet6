@@ -1,6 +1,6 @@
 
 /*################################################boutons #######################*/
-#btnSearch, #btnAdd {
+#btnSearch, .btnAdd {
   background-color: #22b1a3;
   display: block;
 }
