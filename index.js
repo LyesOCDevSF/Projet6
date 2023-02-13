@@ -35,12 +35,13 @@ formContainer.style.display = "none";
 let inputTitle = document.createElement("input");
 inputTitle.type = "text";
 inputTitle.name = "Titre";
-inputTitle.placeholder = "titre";
+inputTitle.id = "labelTitre";
 form.appendChild(inputTitle);
 
 let inputAuthor = document.createElement("input");
 inputAuthor.type = "text";
 inputAuthor.name = "Auteur";
+inputAuthor.id = "labelAuteur"
 form.appendChild(inputAuthor);
 
 // ajout des boutons Rechercher et Annuler //
