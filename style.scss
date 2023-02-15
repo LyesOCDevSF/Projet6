@@ -90,7 +90,7 @@ img {
   position: relative;
 }
 
-.displayBook.section.outputList{
+.displayBook.outputList{
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #797979;
@@ -125,29 +125,19 @@ img {
   }
 }
 
+
+
 .myBook {
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #797979;
   margin: 5px;
   text-align: center;
-
-   /* h1, h2{
-    }*/
 }
 h1, h2{
   text-align: center;
 }
 
-
-/*.save {
-  padding: 20px;
-  border-radius: 5px;
-  margin: 5px;
-  background: #ffffff;
-  color: #24615B;
-  position: relative;
-}*/
 
 @media only screen and (min-width: 600px) and (max-width: 2560px) {
   #displayBook {
@@ -198,6 +188,7 @@ h1, h2{
     section.outputlist {
     display: grid;
     }
+  }
     
 
     
@@ -211,11 +202,11 @@ h1, h2{
       position: relative;
       width: 80%;
     }
-    }
+    
   }
     
     
-    
+
     
     
       
